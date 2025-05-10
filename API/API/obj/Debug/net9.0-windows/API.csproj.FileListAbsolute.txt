@@ -17,3 +17,23 @@ C:\API\API\obj\Debug\net9.0-windows\ref\API.dll
 C:\API\API\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
 C:\API\API\obj\Debug\net9.0-windows\API.csproj.AssemblyReference.cache
 C:\API\API\obj\Debug\net9.0-windows\API.csproj.Up2Date
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\bin\Debug\net9.0-windows\API.exe
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\bin\Debug\net9.0-windows\API.deps.json
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\bin\Debug\net9.0-windows\API.runtimeconfig.json
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\bin\Debug\net9.0-windows\API.dll
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\bin\Debug\net9.0-windows\API.pdb
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.csproj.AssemblyReference.cache
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.Form1.resources
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.csproj.GenerateResource.cache
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.AssemblyInfoInputs.cache
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.AssemblyInfo.cs
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.csproj.CoreCompileInputs.cache
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.sourcelink.json
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.csproj.Up2Date
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.dll
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\refint\API.dll
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.pdb
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\API.genruntimeconfig.cache
+C:\Users\Tereta\Documents\Universidad\Programación I\APIS\API\API\obj\Debug\net9.0-windows\ref\API.dll

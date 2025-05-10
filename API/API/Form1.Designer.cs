@@ -35,7 +35,10 @@
             lblNombre = new Label();
             lblAltura = new Label();
             lblPeso = new Label();
+            pictureBox2 = new PictureBox();
+            btnGuardar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnConsulta
@@ -50,7 +53,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(65, 395);
+            btnLimpiar.Location = new Point(342, 415);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(143, 23);
             btnLimpiar.TabIndex = 1;
@@ -62,7 +65,7 @@
             // 
             pictureBox1.Location = new Point(65, 76);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(411, 292);
+            pictureBox1.Size = new Size(323, 292);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -76,7 +79,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(514, 76);
+            lblNombre.Location = new Point(65, 371);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(38, 15);
             lblNombre.TabIndex = 4;
@@ -85,7 +88,7 @@
             // lblAltura
             // 
             lblAltura.AutoSize = true;
-            lblAltura.Location = new Point(514, 135);
+            lblAltura.Location = new Point(192, 371);
             lblAltura.Name = "lblAltura";
             lblAltura.Size = new Size(38, 15);
             lblAltura.TabIndex = 5;
@@ -94,17 +97,37 @@
             // lblPeso
             // 
             lblPeso.AutoSize = true;
-            lblPeso.Location = new Point(514, 201);
+            lblPeso.Location = new Point(299, 371);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(38, 15);
             lblPeso.TabIndex = 6;
             lblPeso.Text = "label3";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(465, 76);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(323, 292);
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(654, 420);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(101, 23);
+            btnGuardar.TabIndex = 8;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnGuardar);
+            Controls.Add(pictureBox2);
             Controls.Add(lblPeso);
             Controls.Add(lblAltura);
             Controls.Add(lblNombre);
@@ -115,6 +138,7 @@
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -128,5 +152,7 @@
         private Label lblNombre;
         private Label lblAltura;
         private Label lblPeso;
+        private PictureBox pictureBox2;
+        private Button btnGuardar;
     }
 }

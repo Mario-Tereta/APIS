@@ -1,5 +1,5 @@
 using System.Net.Http;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace API
 {
@@ -9,6 +9,8 @@ namespace API
         public Form1()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         public class Pokemon
         {
@@ -20,7 +22,7 @@ namespace API
 
         public class Sprites
         {
-            public string Front_Default { get; set; }
+            public string front_default { get; set; }
         }
 
         public class CatImage
@@ -40,13 +42,13 @@ namespace API
             {
                 // Llamadas a ambas APIs
                 var pokemonTask = ObtenerDatosPokemon(query);
-                //var gatoTask = ObtenerImagenGato();
+                var gatoTask = ObtenerImagenGato();
 
-                //await Task.WhenAll(pokemonTask, gatoTask);
+                await Task.WhenAll(pokemonTask, gatoTask);
 
                 // Mostrar resultados
                 MostrarDatosPokemon(await pokemonTask);
-                //MostrarImagenGato(await gatoTask);
+                MostrarImagenGato(await gatoTask);
             }
             catch (Exception ex)
             {
@@ -63,7 +65,7 @@ namespace API
 
             string json = await response.Content.ReadAsStringAsync();
             Console.WriteLine(json); // Imprime el JSON en la consola para depuración
-            return JsonSerializer.Deserialize<Pokemon>(json);
+            return JsonConvert.DeserializeObject<Pokemon>(json);
         }
 
         private async Task<CatImage> ObtenerImagenGato()
@@ -75,7 +77,7 @@ namespace API
                 throw new Exception("No se pudo obtener la imagen del gato.");
 
             string json = await response.Content.ReadAsStringAsync();
-            var datos = JsonSerializer.Deserialize<List<CatImage>>(json);
+            var datos = JsonConvert.DeserializeObject<List<CatImage>>(json);
             return datos[0]; // La API devuelve un array con un solo objeto
         }
 
@@ -85,9 +87,9 @@ namespace API
             lblAltura.Text = $"Altura: {datos.Height}";
             lblPeso.Text = $"Peso: {datos.Weight}";
 
-            if (datos.Sprites != null && !string.IsNullOrEmpty(datos.Sprites.Front_Default))
+            if (datos.Sprites != null && !string.IsNullOrEmpty(datos.Sprites.front_default))
             {
-                pictureBox1.ImageLocation = datos.Sprites.Front_Default; // Establece la URL de la imagen
+                pictureBox1.ImageLocation = datos.Sprites.front_default; // Establece la URL de la imagen
             }
             else
             {
@@ -101,11 +103,11 @@ namespace API
 
             if (!string.IsNullOrEmpty(datos.Url))
             {
-                pictureBox1.ImageLocation = datos.Url; // Establece la URL de la imagen
+                pictureBox2.ImageLocation = datos.Url; // Establece la URL de la imagen
             }
             else
             {
-                pictureBox1.Image = null; // Limpia la imagen si no hay URL disponible
+                pictureBox2.Image = null; // Limpia la imagen si no hay URL disponible
                 MessageBox.Show("No se pudo cargar la imagen del gato.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -115,7 +117,45 @@ namespace API
             txtBusqueda.Clear();
             lblNombre.Text = lblAltura.Text = lblPeso.Text = string.Empty;
             pictureBox1.Image = null;
-            pictureBox1.Image = null;
+            pictureBox2.Image = null;
+        }
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string pokemonNombre = lblNombre.Text.Replace("Nombre: ", "");
+            string altura = lblAltura.Text.Replace("Altura: ", "");
+            string peso = lblPeso.Text.Replace("Peso: ", "");
+            string pokemonImagen = pictureBox1.ImageLocation ?? "No disponible";
+            string gatoImagen = pictureBox2.ImageLocation ?? "No disponible";
+
+            var resultado = new
+            {
+                Pokemon = new
+                {
+                    Nombre = pokemonNombre,
+                    Altura = altura,
+                    Peso = peso,
+                    Imagen = pokemonImagen
+                },
+                Gato = new
+                {
+                    Imagen = gatoImagen
+                },
+                Fecha = DateTime.Now
+            };
+
+            string json = JsonConvert.SerializeObject(resultado, Formatting.Indented);
+
+            try
+            {
+                string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "resultado_api.json");
+                await File.WriteAllTextAsync(ruta, json);
+                MessageBox.Show($"Datos guardados correctamente en:\n{ruta}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
